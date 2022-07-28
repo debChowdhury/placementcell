@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/css/home.css" >
+<div id="bodyDiv">
+    <%- include('_side_menu') %>
+    
+    <div id="contentDiv">
+        <% if(interviews.length != 0){ %>
+            <button id="downloadCSV" class="btn btn-info text-white">Download interview data csv</button>
+        <% } %>
+        <h3>All interviews</h3>
+        <table id="allInterviewsTable">
+            <thead>
+                <tr>
+                    <td>Company name</td>
+                    <td>Interview date</td>
+                    <td>Assign students to interviews</td>
+                </tr>
+            </thead>
+            <tbody id="allInterviewsTbody">
+                <% for(i of interviews){ %>
+                    <tr>
+                        <td><%= i.company_name %></td>
+                        <td><%= i.interview_date %></td>
+                        <td><a href=/assign-student-interviews/<%= i.id %>>Assign students</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>   
+    </div>
+    
+</div>
+
+
+<script>
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $('#downloadCSV').on('click', function(e){
+        $.ajax({
+            url: '/get-all-assigned-interviews', 
+            type: "GET",
+            data: '', 
+            success: function(result){
+                console.log('result:'+result);
+                if(result.status == 'success'){
+                    window.location.href = '/download-csv';
+                    
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+                
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+    $(document).ready( function () {
+        $('#allInterviewsTable').DataTable();
+    } );
+</script>

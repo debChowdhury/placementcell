@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/css/home.css" >
+
+<h3>Interview data</h3>
+<table id="companyT">
+    <thead>
+        <tr>
+            <td>Company name</td>
+            <td>Interview date</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= interview.company_name %></td>
+            <td><%= interview.interview_date %></td>
+        </tr>
+    </tbody>
+</table>
+<p><h3>Assign students</h3></p>
+<table id="studentT">
+    <thead>
+        <tr>
+            <td>Student name</td>
+            <td>Batch</td>
+            <td>College</td>
+            <td>Status</td>
+            <td>Assign interview</td>
+            <td>Interview status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(i of students){ 
+            let checked = "";
+            if (assignInterviewStatuses.some(e => e.student_id === i.id)) {
+                checked = "checked"
+            } %>
+            <tr>
+                <td><%= i.name %></td>
+                <td><%= i.batch.name %></td>
+                <td><%= i.college %></td>
+                <td><%= (i.status == 'placed')? 'Placed':'Not placed' %></td>
+                <td><input type="checkbox" class="assignCb form-check-input" value="<%= i.id %>" data-interviewId="<%= interview.id %>" <%= checked %>></td>
+                <td><button class="interviewStatusA btn btn-primary" data-interviewId="<%= interview.id %>" data-studentId="<%= i.id %>">Interview status</button></td>
+            </tr>
+        <% } %>
+    </tbody>
+    
+    
+</table>
+
+
+<script type="text/javascript">
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $( "input:checkbox" ).on('change', function(e){
+        let ischecked= $(this).is(':checked');
+        let studentId = $(this).val();
+        let interviewId = $(this).attr('data-interviewId');
+        console.log(ischecked);
+        console.log(studentId);
+        $.ajax({
+            url: '/assign-student-interviews', 
+            type: "POST",
+            data: {'interviewId':interviewId,'studentId':studentId, 'assignStatus':ischecked}, 
+            success: function(result){
+                console.log(result);
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+    $('.interviewStatusA').on('click',function(e){
+        if($(this).parent().prev().children().is(':checked')){
+            let studentId = $(this).attr('data-studentId');
+            let interviewId = $(this).attr('data-interviewId');
+            window.location = '/interview-status/'+interviewId+"/"+studentId;
+        }
+        else{
+            toastEBody.text('Student not assigned to interview');
+            toastE.show();
+        }
+    });
+    $(document).ready( function () {
+        $('#companyT').DataTable({
+            paging: false,
+            ordering: false,
+            info: false,
+            searching: false
+        });
+        $('#studentT').DataTable();
+    } );
+</script>
+
+        

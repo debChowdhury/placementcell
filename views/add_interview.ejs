@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/home.css" >
+<div id="bodyDiv">
+    <%- include('_side_menu') %>
+    <div id="contentDiv">
+        <h3>Add company interviews</h3>
+        <!-- <form action="/create-interviews" method="post" id="createInterviews">
+            <input type="text" name="company_name" placeholder="Enter company name" required />
+            <input id="minDate" type="date" name="interview_date" placeholder="Enter interview date" required />
+            <input type="submit" value="Submit" />
+        </form>  -->
+        <form action="/create-interviews" method="post" id="createInterviews">
+            <div class="mb-3">
+                <label class="form-label">Company name</label>
+                <input type="text" name="company_name" class="form-control" placeholder="Enter company name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Interview date</label>
+                <input id="minDate" type="date" name="interview_date" placeholder="Enter interview date" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+    
+<script>
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $("#createInterviews").on("submit", function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'), 
+            type: "POST",
+            data: form.serialize(), 
+            success: function(result){
+                
+                
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                    console.log(result);
+                    let mHtml = "<tr><td>"+ result.data.company_name +"</td><td>"+ result.data.interview_date +"</td></tr>";
+                    $("#allInterviewsTbody").append(mHtml);
+                    
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+                
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+    $(document).ready(function(){
+        var today = new Date().toISOString().split('T')[0];
+        $("#minDate").attr('min', today);
+    });
+</script>

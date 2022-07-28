@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/home.css" >
+<div id="bodyDiv">
+    <%- include('_side_menu') %>
+    <div id="contentDiv">
+        <table id="studentsTable" class="stripe">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>College</td>
+                    <td>Batch</td>
+                    <td>Status</td>
+                    <td>Course scores</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(i in students){ %>
+                    <tr>
+                        <td><%= students[i].name %></td>
+                        <td><%= students[i].email %></td>
+                        <td><%= students[i].college %></td>
+                        <td><%= students[i].batch.name %></td>
+                        <td><%=  (students[i].status == 'placed')? 'Placed':'Not placed' %></td>
+                        <td><a href="/student-scores/<%= students[i].id %>">Student course scores</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+            
+        </table>   
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+        $('#studentsTable').DataTable();
+    } );
+</script>

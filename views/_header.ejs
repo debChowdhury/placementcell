@@ -1,1 +1,11 @@
-<header>Header</header>
+<header id="header">
+    <div style="display: flex;width:100%;justify-content:center">
+        <h4 style="text-align: center;">Placement cell</h4>
+    </div>
+    
+    <% if(typeof user !== 'undefined'){ %> 
+        <form style="display:flex ;justify-content: end;" action="/logout" method="post">
+            <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+    <% } %>
+</header>

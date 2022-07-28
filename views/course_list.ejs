@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/home.css" >
+<div id="bodyDiv">
+    <%- include('_side_menu') %>
+    <div id="contentDiv">
+        <h3>Courses data</h3>
+        <table id="coursesTable" class="stripe">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                </tr>
+            </thead>
+            <tbody id="coursesTbody">
+                <% for(i of courses){ %>
+                    <tr>
+                        <td><%= i.name %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>    
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+        $('#coursesTable').DataTable();
+    } );
+</script>

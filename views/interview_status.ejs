@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/css/home.css" >
+<table id="interviewT">
+    <thead>
+        <tr>
+            <td>Company name</td>
+            <td>Interview date</td>
+            <td>Student name</td>
+            <td>Student college</td>
+            <td>Student batch</td>
+            <td>Student status</td>
+            <td>Interview status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= assignInterviewsStatuses.interview_id.company_name %></td>
+            <td><%= assignInterviewsStatuses.interview_id.interview_date %></td>
+            <td><%= assignInterviewsStatuses.student_id.name %></td>
+            <td><%= assignInterviewsStatuses.student_id.college %></td>
+            <td><%= assignInterviewsStatuses.student_id.batch.name %></td>
+            <td><%= (assignInterviewsStatuses.student_id.status == 'placed')? 'Placed':'Not placed' %></td>
+            <td><select class="form-control" name="interview_status" id="interviewStatusSelect" data-interview-id="<%= assignInterviewsStatuses.id %>">
+                <option value="">Update status</option>
+                <option value="pass" <%= assignInterviewsStatuses.result_status == 'pass' ? 'selected' : '' %>>Pass</option>
+                <option value="fail" <%= assignInterviewsStatuses.result_status == 'fail' ? 'selected' : '' %>>Fail</option>
+                <option value="on_hold" <%= assignInterviewsStatuses.result_status == 'on_hold' ? 'selected' : '' %>>On hold</option>
+                <option value="didnt_attempt" <%= assignInterviewsStatuses.result_status == 'didnt_attempt' ? 'selected' : '' %>>Didnt attempt</option>
+            </select></td>
+        </tr>
+    </tbody>
+</table>
+<script type="text/javascript">
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $('#interviewStatusSelect').on('change', function(e){
+        
+        let value = $(this).val();
+        if(value == ''){
+            return;
+        }
+        let interviewId = $(this).attr('data-interview-id');
+        
+        $.ajax({
+            url: '/interview-status', 
+            type: "POST",
+            data: {'interviewId':interviewId,'studentInterviewStatus':value}, 
+            success: function(result){
+                console.log(result);
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+    $(document).ready( function () {
+        $('#interviewT').DataTable();
+    } );
+</script>
+        

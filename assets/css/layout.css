@@ -1,0 +1,19 @@
+body{
+    margin: 10px;
+    font-family: 'Cormorant Garamond', serif;
+}
+#header{
+    
+    
+}
+#bodyDiv{
+    display: flex;
+    justify-content: flex-start;
+}
+#sidemenuDiv{
+    width: 18%;
+}
+#contentDiv{
+    width: 65%;
+    margin-left: 20px;
+}

@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/home.css" >
+<div id="bodyDiv">
+    <%- include('_side_menu') %>
+    <div id="contentDiv">
+        <h3>Add batch</h3>
+        <form action="/create-batch" method="post" id="createBatch">
+            <div class="mb-3">
+                <label class="form-label">Batch name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter batch name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+     
+<script>
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $("#createBatch").on("submit", function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'), 
+            type: "POST",
+            data: form.serialize(), 
+            success: function(result){
+                
+                
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                    console.log(result);
+                    let mHtml = "";
+                    for(data of result.data){
+                        
+                        mHtml += "<option value="+ data._id +">"+ data.name +"</option>";
+                        
+        
+                    }
+                    $("select[name='batch']").html(mHtml);
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+                
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+</script>

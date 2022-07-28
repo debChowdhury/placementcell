@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="/css/home.css" >
+
+
+<h3>Student data</h3>
+<table id="studentT">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>College</td>
+            <td>Batch</td>
+            <td>Status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.college %></td>
+            <td><%= batch.name %></td>
+            <td><%= (student.status == 'placed')? 'Placed':'Not placed' %></td>
+        </tr>
+    </tbody>
+    
+    
+    
+    
+</table>
+<p><h3>Courses data</h3></p>
+<table id="scoresTable" class="stripe">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Update</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(i of courses){ %>
+            <tr>
+                <td><%= i.name %></td>
+                <td>
+                    <form action="/update-scores" method="post">
+                        <% if (courses_scores.some(e => e.studentId === student.id && e.courseId === i.id)) { %>
+                            <input type="text" name="course_score" placeholder="Enter course score" 
+                        value="<%= courses_scores.find(e => e.studentId === student.id && e.courseId === i.id).courseScore %>">
+                        <% } else { %>
+                        <input type="number" name="course_score" placeholder="Enter course final score" value="" required>
+                        <% } %>
+                        <input type="hidden" name="course_id" value="<%= i.id %>">
+                        <input type="hidden" name="student_id" value="<%= student.id %>">
+                        <input type="submit" value="Update score" class="btn btn-primary">
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+    
+    
+</table>
+
+
+<script type="text/javascript">
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+      $("form").on("submit", function (event) {
+        event.preventDefault();
+        var form = $(this);
+        console.log(form.serialize());
+        $.ajax({
+            url: form.attr('action'), 
+            type: "POST",
+            data: form.serialize(), 
+            success: function(result){
+                console.log(result);
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+    $(document).ready( function () {
+        $('#studentT').DataTable({
+        paging: false,
+        ordering: false,
+        info: false,
+        searching: false
+    });
+        $('#scoresTable').DataTable();
+    } );
+</script>
+
+        

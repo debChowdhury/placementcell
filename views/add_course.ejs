@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/home.css" >
+<%- include('_side_menu') %>
+<h3>Add course</h3>
+<form action="/create-course" method="post" id="createCourse">
+    <input type="text" name="name" placeholder="Enter course name" required />
+    <input type="submit" value="Submit" />
+</form>     
+<script>
+    let toastS = new bootstrap.Toast($('#toast-success'));
+    let toastSBody = $('#toast-success-body');
+    let toastE = new bootstrap.Toast($('#toast-error'));
+    let toastEBody = $('#toast-error-body');
+    $("#createCourse").on("submit", function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'), 
+            type: "POST",
+            data: form.serialize(), 
+            success: function(result){
+                
+                
+                if(result.status == 'success'){
+                    toastSBody.text(result.msg);
+                    toastS.show();
+                    console.log(result);
+                    let mHtml = "<tr><td>"+ result.data.name +"</td></tr>";
+                    $("#coursesTbody").append(mHtml);
+                    
+                }
+                else{
+                    toastEBody.text(result.msg);
+                    toastE.show();
+                }
+                
+            },
+            error: function(result){
+                toastEBody.text(result.msg);
+                toastE.show();
+            }
+        });
+    });
+</script>

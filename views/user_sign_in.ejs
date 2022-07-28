@@ -1,0 +1,50 @@
+
+<div style="display: flex;flex-direction: column;">
+    <div style="display:flex;justify-content: center">
+        <form action="/createSession" method="post" style="width: 50%;" id="signInForm">
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Your email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>
+    
+    
+    <p style="text-align: center;">Not registered? <a href="/signUp">Sign up</a></p>
+</div>
+<script>
+    // let toastS = new bootstrap.Toast($('#toast-success'));
+    // let toastSBody = $('#toast-success-body');
+    // let toastE = new bootstrap.Toast($('#toast-error'));
+    // let toastEBody = $('#toast-error-body');
+    // $("#signInForm").on("submit", function (event) {
+    //     event.preventDefault();
+    //     var form = $(this);
+    //     $.ajax({
+    //         url: form.attr('action'), 
+    //         type: "POST",
+    //         data: form.serialize(), 
+    //         success: function(result){
+                
+                
+    //             if(result.status == 'success'){
+    //                 window.location.href="/home";
+    //             }
+    //             else{
+    //                 toastEBody.text(result.msg);
+    //                 toastE.show();
+    //             }
+                
+    //         },
+    //         error: function(result){
+    //             toastEBody.text(result.msg);
+    //             toastE.show();
+    //         }
+    //     });
+    // });
+</script>
