@@ -1,0 +1,4 @@
+::1 - - [29/Jul/2022:04:22:58 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/interview-list" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:04:23:19 +0000] "POST /createSession HTTP/1.1" 302 54 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:04:23:19 +0000] "GET /home HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:04:23:22 +0000] "GET /student-list HTTP/1.1" 304 - "http://localhost:8000/home" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
