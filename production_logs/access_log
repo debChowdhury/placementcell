@@ -2,3 +2,24 @@
 ::1 - - [29/Jul/2022:04:23:19 +0000] "POST /createSession HTTP/1.1" 302 54 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 ::1 - - [29/Jul/2022:04:23:19 +0000] "GET /home HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 ::1 - - [29/Jul/2022:04:23:22 +0000] "GET /student-list HTTP/1.1" 304 - "http://localhost:8000/home" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:18:48 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:18:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:21:32 +0000] "GET / HTTP/1.1" 200 4452 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:21:35 +0000] "GET /signUp HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:21:39 +0000] "POST /signup HTTP/1.1" 200 50 "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:25:57 +0000] "GET /signUp HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:25:59 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:27:26 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [29/Jul/2022:13:27:41 +0000] "POST /createSession HTTP/1.1" 302 54 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 32.469 ms - 4452[0m
+[0mPOST /createSession [36m302[0m 33.546 ms - 54[0m
+[0mGET / [32m200[0m 40.626 ms - 4452[0m
+[0mGET /favicon.ico [33m404[0m 5.178 ms - 150[0m
+[0mGET / [36m304[0m 13.965 ms - -[0m
+[0mPOST /createSession [36m302[0m 43.126 ms - 54[0m
+[0mGET / [32m200[0m 55.419 ms - 4452[0m
+[0mGET / [36m304[0m 19.375 ms - -[0m
+[0mGET / [36m304[0m 35.200 ms - -[0m
+[0mGET / [32m200[0m 53.866 ms - 4452[0m
+[0mPOST /createSession [36m302[0m 37.703 ms - 54[0m
+[0mGET /home [32m200[0m 16.281 ms - 6219[0m

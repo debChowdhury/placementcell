@@ -28,13 +28,14 @@ app.use(session({
     cookie: {
         maxAge: (1000*60*100)
     },
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/placementcell_development' })
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/'+env.db })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 app.use(logger(env.morgan.mode, env.morgan.options))
 app.use('/', require('./routes/index'));
+console.log(process.env);
 app.listen(port, function(err){
     if(err){
         console.log("Error in running server");
