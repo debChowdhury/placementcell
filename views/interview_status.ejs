@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="/css/home.css" >
+<div id="overlay" style="display: none">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</div>
 <table id="interviewT">
     <thead>
         <tr>
@@ -41,12 +46,13 @@
             return;
         }
         let interviewId = $(this).attr('data-interview-id');
-        
+        $('#overlay').fadeIn();
         $.ajax({
             url: '/interview-status', 
             type: "POST",
             data: {'interviewId':interviewId,'studentInterviewStatus':value}, 
             success: function(result){
+                $('#overlay').fadeOut();
                 console.log(result);
                 if(result.status == 'success'){
                     toastSBody.text(result.msg);
@@ -58,6 +64,7 @@
                 }
             },
             error: function(result){
+                $('#overlay').fadeOut();
                 toastEBody.text(result.msg);
                 toastE.show();
             }

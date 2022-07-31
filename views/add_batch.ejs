@@ -2,6 +2,11 @@
 <div id="bodyDiv">
     <%- include('_side_menu') %>
     <div id="contentDiv">
+        <div id="overlay" style="display: none">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
         <h3>Add batch</h3>
         <form action="/create-batch" method="post" id="createBatch">
             <div class="mb-3">
@@ -21,6 +26,7 @@
     let toastEBody = $('#toast-error-body');
     $("#createBatch").on("submit", function (event) {
         event.preventDefault();
+        $('#overlay').fadeIn();
         var form = $(this);
         $.ajax({
             url: form.attr('action'), 
@@ -28,7 +34,7 @@
             data: form.serialize(), 
             success: function(result){
                 
-                
+                $('#overlay').fadeOut();
                 if(result.status == 'success'){
                     toastSBody.text(result.msg);
                     toastS.show();
@@ -49,6 +55,7 @@
                 
             },
             error: function(result){
+                $('#overlay').fadeOut();
                 toastEBody.text(result.msg);
                 toastE.show();
             }

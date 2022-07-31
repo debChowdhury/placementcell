@@ -23,3 +23,135 @@
 [0mGET / [32m200[0m 53.866 ms - 4452[0m
 [0mPOST /createSession [36m302[0m 37.703 ms - 54[0m
 [0mGET /home [32m200[0m 16.281 ms - 6219[0m
+::1 - - [31/Jul/2022:02:36:25 +0000] "GET / HTTP/1.1" 200 4452 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:29 +0000] "GET /signUp HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:31 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:37 +0000] "POST /createSession HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:37 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:43 +0000] "GET /signUp HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:50 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:36:54 +0000] "GET /signUp HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:00 +0000] "POST /signup HTTP/1.1" 200 59 "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:00 +0000] "GET /home HTTP/1.1" 200 6219 "http://localhost:8000/signUp" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:04 +0000] "GET / HTTP/1.1" 302 54 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:05 +0000] "GET /home HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:08 +0000] "GET /batch-list HTTP/1.1" 304 - "http://localhost:8000/home" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:11 +0000] "GET /add-batch HTTP/1.1" 304 - "http://localhost:8000/batch-list" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:15 +0000] "POST /create-batch HTTP/1.1" 200 330 "http://localhost:8000/add-batch" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:18 +0000] "GET /batch-list HTTP/1.1" 200 6809 "http://localhost:8000/add-batch" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:21 +0000] "GET /interview-list HTTP/1.1" 304 - "http://localhost:8000/batch-list" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:23 +0000] "GET /get-all-assigned-interviews HTTP/1.1" 304 - "http://localhost:8000/interview-list" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [31/Jul/2022:02:37:24 +0000] "GET /download-csv HTTP/1.1" 304 - "http://localhost:8000/interview-list" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 40.842 ms - 4452[0m
+[0mPOST /createSession [36m302[0m 37.656 ms - 54[0m
+[0mGET /home [36m304[0m 14.318 ms - -[0m
+[0mGET /add-student [32m200[0m 41.547 ms - 9055[0m
+[0mGET /add-student [32m200[0m 43.806 ms - 9058[0m
+[0mGET /add-student [32m200[0m 34.167 ms - 9110[0m
+[0mGET /add-student [32m200[0m 28.548 ms - 9105[0m
+[0mGET /add-student [32m200[0m 55.558 ms - 9102[0m
+[0mGET /add-student [32m200[0m 44.117 ms - 9165[0m
+[0mGET /add-student [32m200[0m 34.952 ms - 9121[0m
+[0mGET /add-student [32m200[0m 23.328 ms - 9333[0m
+[0mGET /add-student [32m200[0m 37.318 ms - 9328[0m
+[0mGET /add-student [32m200[0m 54.114 ms - 9340[0m
+[0mGET /add-student [32m200[0m 33.723 ms - 9271[0m
+[0mPOST /create-student [32m200[0m 72.248 ms - 718[0m
+[0mPOST /create-student [32m200[0m 6.300 ms - 50[0m
+[0mPOST /create-student [32m200[0m 3.798 ms - 50[0m
+[0mPOST /create-student [32m200[0m 3.801 ms - 50[0m
+[0mPOST /create-student [32m200[0m 18.833 ms - 1044[0m
+[0mGET /add-student [32m200[0m 28.048 ms - 9767[0m
+[0mGET /add-student [32m200[0m 41.109 ms - 9724[0m
+[0mGET /add-student [32m200[0m 50.288 ms - 9282[0m
+[0mGET /add-student [36m304[0m 23.514 ms - -[0m
+[0mGET /add-student [36m302[0m 2.510 ms - 46[0m
+[0mGET / [36m304[0m 14.708 ms - -[0m
+[0mPOST /createSession [36m302[0m 20.569 ms - 54[0m
+[0mGET /home [36m304[0m 10.967 ms - -[0m
+[0mGET /add-student [32m200[0m 73.406 ms - 9077[0m
+[0mPOST /create-student [32m200[0m 9.904 ms - 50[0m
+[0mPOST /create-student [32m200[0m 35.295 ms - 1372[0m
+[0mPOST /create-student [32m200[0m 11.700 ms - 50[0m
+[0mPOST /create-student [32m200[0m 131.285 ms - 1703[0m
+[0mGET /add-student [36m304[0m 34.073 ms - -[0m
+[0mGET /add-batch [32m200[0m 9.821 ms - 8297[0m
+[0mPOST /create-batch [32m200[0m 56.217 ms - 331[0m
+[0mPOST /create-batch [32m200[0m 10.248 ms - 48[0m
+[0mGET /add-interview [36m304[0m 23.732 ms - -[0m
+[0mPOST /create-interviews [32m200[0m 23.937 ms - 239[0m
+[0mGET /add-interview [32m200[0m 20.788 ms - 8632[0m
+[0mPOST /create-interviews [32m200[0m 21.178 ms - 240[0m
+[0mPOST /create-interviews [32m200[0m 15.445 ms - 80[0m
+[0mGET /interview-list [32m200[0m 34.960 ms - 8485[0m
+[0mGET /interview-list [32m200[0m 20.294 ms - 8824[0m
+[0mGET /get-all-assigned-interviews [36m304[0m 25.101 ms - -[0m
+[0mGET /download-csv [32m200[0m 88.594 ms - 270[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [32m200[0m 70.182 ms - 8018[0m
+[0mGET /batch-list [32m200[0m 58.456 ms - 6810[0m
+[0mGET /batch-list [32m200[0m 17.558 ms - 7230[0m
+[0mGET /batch-list [32m200[0m 19.651 ms - 7265[0m
+[0mGET /batch-list [36m304[0m 16.503 ms - -[0m
+[0mGET /batch-list [32m200[0m 29.003 ms - 7271[0m
+[0mGET /batch-list [36m304[0m 15.649 ms - -[0m
+[0mGET /batch-list [36m304[0m 30.121 ms - -[0m
+[0mGET /course-list [36m304[0m 15.358 ms - -[0m
+[0mGET /course-list [32m200[0m 15.732 ms - 7298[0m
+[0mGET /course-list [36m304[0m 14.261 ms - -[0m
+[0mGET /batch-list [32m200[0m 34.834 ms - 7195[0m
+[0mGET /course-list [36m304[0m 28.179 ms - -[0m
+[0mGET /student-list [32m200[0m 46.354 ms - 8642[0m
+[0mGET /student-list [32m200[0m 51.781 ms - 9018[0m
+[0mGET /student-list [36m304[0m 27.349 ms - -[0m
+[0mGET /student-scores/62e65553dff6682f6064d75f [32m200[0m 60.673 ms - 6846[0m
+[0mGET /student-scores/62e65553dff6682f6064d75f [32m200[0m 27.715 ms - 7143[0m
+[0mPOST /update-scores [32m200[0m 20.992 ms - 63[0m
+[0mPOST /update-scores [32m200[0m 47.468 ms - 63[0m
+[0mGET /student-list [36m304[0m 37.617 ms - -[0m
+[0mGET /add-interview [36m304[0m 27.027 ms - -[0m
+[0mPOST /create-interviews [32m200[0m 31.706 ms - 239[0m
+[0mGET /interview-list [32m200[0m 34.858 ms - 9092[0m
+[0mGET /interview-list [32m200[0m 18.924 ms - 9247[0m
+[0mGET /interview-list [36m304[0m 20.884 ms - -[0m
+[0mGET /interview-list [32m200[0m 15.180 ms - 9246[0m
+[0mGET /interview-list [36m304[0m 23.270 ms - -[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [36m304[0m 33.399 ms - -[0m
+[0mGET /interview-list [36m304[0m 36.729 ms - -[0m
+[0mGET /get-all-assigned-interviews [36m304[0m 42.745 ms - -[0m
+[0mGET /download-csv [36m304[0m 96.493 ms - -[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [36m304[0m 48.235 ms - -[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [32m200[0m 24.004 ms - 8469[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [36m304[0m 35.299 ms - -[0m
+[0mPOST /assign-student-interviews [32m200[0m 15.946 ms - 71[0m
+[0mPOST /assign-student-interviews [32m200[0m 34.024 ms - 72[0m
+[0mPOST /assign-student-interviews [32m200[0m 29.170 ms - 71[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [32m200[0m 42.408 ms - 8476[0m
+[0mGET /interview-status/62e65612dff6682f6064d781/62e65553dff6682f6064d75f [32m200[0m 96.743 ms - 5096[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [36m304[0m 77.872 ms - -[0m
+[0mGET /interview-status/62e65612dff6682f6064d781/62e65553dff6682f6064d75f [36m304[0m 85.010 ms - -[0m
+[0mGET /interview-status/62e65612dff6682f6064d781/62e65553dff6682f6064d75f [32m200[0m 51.492 ms - 5385[0m
+[0mPOST /interview-status [32m200[0m 39.548 ms - 66[0m
+[0mGET /interview-list [36m304[0m 50.644 ms - -[0m
+[0mGET /add-batch [36m304[0m 27.905 ms - -[0m
+[0mPOST /create-batch [32m200[0m 32.816 ms - 469[0m
+[0mGET /batch-list [32m200[0m 25.453 ms - 7308[0m
+[0mGET /course-list [36m304[0m 31.220 ms - -[0m
+[0mGET /add-student [32m200[0m 66.525 ms - 9283[0m
+[0mPOST /create-student [32m200[0m 51.784 ms - 2030[0m
+[0mGET /student-list [32m200[0m 66.246 ms - 9396[0m
+[0mGET /student-scores/62e65553dff6682f6064d75f [32m200[0m 55.290 ms - 7171[0m
+[0mPOST /update-scores [32m200[0m 21.788 ms - 62[0m
+[0mPOST /update-scores [32m200[0m 37.161 ms - 62[0m
+[0mPOST /update-scores [32m200[0m 83.960 ms - 63[0m
+[0mGET /student-scores/62e65553dff6682f6064d75f [32m200[0m 57.997 ms - 7187[0m
+[0mGET /add-interview [36m304[0m 38.704 ms - -[0m
+[0mGET /interview-list [36m304[0m 22.891 ms - -[0m
+[0mGET /get-all-assigned-interviews [36m304[0m 15.778 ms - -[0m
+[0mGET /download-csv [32m200[0m 108.756 ms - 358[0m
+[0mGET /interview-list [36m304[0m 33.505 ms - -[0m
+[0mGET /assign-student-interviews/62e65612dff6682f6064d781 [32m200[0m 40.368 ms - 8994[0m
+[0mPOST /assign-student-interviews [32m200[0m 30.298 ms - 71[0m
+[0mPOST /assign-student-interviews [32m200[0m 34.562 ms - 72[0m
+[0mGET /interview-status/62e65612dff6682f6064d781/62e6176cdff6682f6064d72a [32m200[0m 63.164 ms - 5385[0m
+[0mPOST /interview-status [32m200[0m 49.289 ms - 66[0m

@@ -3,6 +3,11 @@
     <%- include('_side_menu') %>
     
     <div id="contentDiv">
+        <div id="overlay" style="display: none">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
         <% if(interviews.length != 0){ %>
             <button id="downloadCSV" class="btn btn-info text-white">Download interview data csv</button>
         <% } %>
@@ -31,14 +36,17 @@
 
 
 <script>
+    $('#overlay').fadeIn();
     let toastE = new bootstrap.Toast($('#toast-error'));
     let toastEBody = $('#toast-error-body');
     $('#downloadCSV').on('click', function(e){
+        $('#overlay').fadeIn();
         $.ajax({
             url: '/get-all-assigned-interviews', 
             type: "GET",
             data: '', 
             success: function(result){
+                $('#overlay').fadeOut();
                 console.log('result:'+result);
                 if(result.status == 'success'){
                     window.location.href = '/download-csv';
@@ -51,12 +59,17 @@
                 
             },
             error: function(result){
+                $('#overlay').fadeOut();
                 toastEBody.text(result.msg);
                 toastE.show();
             }
         });
     });
     $(document).ready( function () {
-        $('#allInterviewsTable').DataTable();
+        $('#allInterviewsTable').DataTable({
+            "initComplete": function(settings, json) {
+                $('#overlay').fadeOut();
+            }
+        });
     } );
 </script>

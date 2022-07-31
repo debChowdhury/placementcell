@@ -35,7 +35,6 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 app.use(logger(env.morgan.mode, env.morgan.options))
 app.use('/', require('./routes/index'));
-console.log(process.env);
 app.listen(port, function(err){
     if(err){
         console.log("Error in running server");

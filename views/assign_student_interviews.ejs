@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="/css/home.css" >
-
+<div id="overlay" style="display: none">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</div>
 <h3>Interview data</h3>
 <table id="companyT">
     <thead>
@@ -49,6 +53,7 @@
 
 
 <script type="text/javascript">
+    $('#overlay').fadeIn();
     let toastS = new bootstrap.Toast($('#toast-success'));
     let toastSBody = $('#toast-success-body');
     let toastE = new bootstrap.Toast($('#toast-error'));
@@ -59,11 +64,13 @@
         let interviewId = $(this).attr('data-interviewId');
         console.log(ischecked);
         console.log(studentId);
+        $('#overlay').fadeIn();
         $.ajax({
             url: '/assign-student-interviews', 
             type: "POST",
             data: {'interviewId':interviewId,'studentId':studentId, 'assignStatus':ischecked}, 
             success: function(result){
+                $('#overlay').fadeOut();
                 console.log(result);
                 if(result.status == 'success'){
                     toastSBody.text(result.msg);
@@ -75,6 +82,7 @@
                 }
             },
             error: function(result){
+                $('#overlay').fadeOut();
                 toastEBody.text(result.msg);
                 toastE.show();
             }
@@ -98,7 +106,11 @@
             info: false,
             searching: false
         });
-        $('#studentT').DataTable();
+        $('#studentT').DataTable({
+            "initComplete": function(settings, json) {
+                $('#overlay').fadeOut();
+            }
+        });
     } );
 </script>
 
