@@ -36,6 +36,7 @@
     let toastSBody = $('#toast-success-body');
     let toastE = new bootstrap.Toast($('#toast-error'));
     let toastEBody = $('#toast-error-body');
+    // setting up student interview status
     $('#interviewStatusSelect').on('change', function(e){
         
         let value = $(this).val();
@@ -68,6 +69,7 @@
         });
     });
     $(document).ready( function () {
+        // setting up interview status table
         $('#interviewT').DataTable();
     } );
 </script>

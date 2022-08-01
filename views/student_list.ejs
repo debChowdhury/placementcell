@@ -35,6 +35,7 @@
 <script>
     $('#overlay').fadeIn();
     $(document).ready( function () {
+        // setting up student list table
         $('#studentsTable').DataTable({
             "initComplete": function(settings, json) {
                 $('#overlay').fadeOut();

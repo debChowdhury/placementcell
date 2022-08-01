@@ -37,6 +37,7 @@
     $('#overlay').fadeIn();
     let toastE = new bootstrap.Toast($('#toast-error'));
     let toastEBody = $('#toast-error-body');
+    // downloading interview data csv file
     $('#downloadCSV').on('click', function(e){
         $('#overlay').fadeIn();
         $.ajax({
@@ -64,6 +65,7 @@
         });
     });
     $(document).ready( function () {
+        // setting up interview list table
         $('#allInterviewsTable').DataTable({
             "initComplete": function(settings, json) {
                 $('#overlay').fadeOut();

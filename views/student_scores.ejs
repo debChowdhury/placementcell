@@ -66,6 +66,7 @@
     let toastSBody = $('#toast-success-body');
     let toastE = new bootstrap.Toast($('#toast-error'));
     let toastEBody = $('#toast-error-body');
+      // adding student scores
       $("form").on("submit", function (event) {
         $('#overlay').fadeIn();
         event.preventDefault();
@@ -94,6 +95,7 @@
             }
         });
     });
+    // setting up student scores table
     $(document).ready( function () {
         $('#studentT').DataTable({
         paging: false,
