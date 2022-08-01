@@ -6,12 +6,14 @@ const CoursesScore = require('../models/courses_score');
 const Interviews = require('../models/interviews');
 const AssignInterviewsStatus = require('../models/assign_interviews_status');
 
+//controller for add batch page
 module.exports.addBatch = function(req, res){
     res.render('add_batch',{
         'title': 'Add batch'
     })
 }
 
+//controller for creating bath
 module.exports.createBatch = function(req, res){
     Batches.findOne({name:req.body.name}, function(err, batch){
         if(err){
@@ -43,6 +45,7 @@ module.exports.createBatch = function(req, res){
     
 }
 
+//controller for showing batch list
 module.exports.batchList = function(req, res){
     Batches.find({}, function(err, rows){
         if(err){

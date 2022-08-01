@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+//schema for courses score model
 const coursesScoreSchema = new mongoose.Schema({
     studentId:{
         type: String,

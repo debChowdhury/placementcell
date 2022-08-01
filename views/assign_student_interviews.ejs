@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="/css/home.css" >
-<div id="overlay" style="display: none">
-    <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-</div>
+<%- include('_spinner_overlay') %>
+<!-- Table showing interviews data -->
 <h3>Interview data</h3>
 <table id="companyT">
     <thead>
@@ -20,6 +17,7 @@
     </tbody>
 </table>
 <p><h3>Assign students</h3></p>
+<!-- Table showing student data along with the interview status -->
 <table id="studentT">
     <thead>
         <tr>

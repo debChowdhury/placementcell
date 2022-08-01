@@ -6,12 +6,14 @@ const CoursesScore = require('../models/courses_score');
 const Interviews = require('../models/interviews');
 const AssignInterviewsStatus = require('../models/assign_interviews_status');
 
+//controller for showing the add interview page
 module.exports.addInterview = function(req, res){
     res.render('add_interview',{
         'title': 'Add interview'
     })
 }
 
+//controller for creating interviews
 module.exports.createInterviews = function(req, res){
     Interviews.findOne({company_name:req.body.company_name, interview_date: req.body.interview_date}, function(err, row){
         if(err){
@@ -35,6 +37,7 @@ module.exports.createInterviews = function(req, res){
     
 }
 
+//controller for fetching interview list
 module.exports.interviewList = function(req, res){
     Interviews.find({}, function(err, interviews){
         if(err){

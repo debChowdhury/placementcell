@@ -2,12 +2,14 @@ const fs = require('fs');
 const rfs = require('rotating-file-stream');
 const path = require('path');
 const logDirectory = path.join(__dirname,'../production_logs');
+
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+//creating an access log stream file which will refresh after 1 day
 const accessLogStream = rfs.createStream('access_log',{
     interval:'1d',
     path:logDirectory
 });
-
+//development mode env object
 const development = {
     name:'development',
     asset_path:'./assets',
@@ -20,7 +22,7 @@ const development = {
         }
     }
 }
-
+//production mode env object
 const production = {
     name:'production',
     asset_path:process.env.PLACEMENTCELL_PROJECT_ASSET_PATH,

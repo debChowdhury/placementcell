@@ -7,6 +7,8 @@ const batchController = require('../controllers/batch_controller');
 const courseController = require('../controllers/course_controller');
 const interviewController = require('../controllers/interview_controller');
 const passport = require('passport');
+
+//all the routes of the app and their middlewares and corresponding controllers
 router.get('/', passport.checkAuthenticationForSignInAndSignUp, usersController.signIn);
 router.get('/home', passport.checkAuthentication,  homeController.home);
 router.get('/signup', passport.checkAuthenticationForSignInAndSignUp, usersController.signUp);

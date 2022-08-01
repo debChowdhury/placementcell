@@ -3,6 +3,7 @@ const CoursesScore = require('../models/courses_score');
 const AssignInterviewsStatus = require('../models/assign_interviews_status');
 const { Parser } = require('json2csv');
 
+//controller for checking whether any interview is assigned or not to any student
 module.exports.anyInterviewsAssignedOrNot = function(req, res){
   AssignInterviewsStatus.find({}, function(err, rows){
     console.log(err);
@@ -16,6 +17,7 @@ module.exports.anyInterviewsAssignedOrNot = function(req, res){
   });
 };
 
+//controller for downloading csv file consisting of the interview data of a student
 module.exports.downloadCsv = function(req, res){
   CoursesScore.find({}).populate('courseId').exec(function(err, scores){
     console.log(scores);
@@ -60,18 +62,21 @@ module.exports.downloadCsv = function(req, res){
   });
 }
 
+//controller for showing the user sign in page
 module.exports.signIn = function(req, res){
   res.render('user_sign_in',{
       title: 'Sign in'
   });
 }
 
+//controller for showing the user sign up page
 module.exports.signUp = function(req, res){
   res.render('user_sign_up',{
       title: 'Sign up'
   });
 }
 
+//controller for signing up
 module.exports.signUpAction = function(req, res){
   console.log(req.body);
   Users.findOne({email:req.body.email}, function(err, user){
@@ -113,6 +118,7 @@ module.exports.signUpAction = function(req, res){
   
 }
 
+//controller for signing in which is used in conjuction with passport local login strategy
 module.exports.createSession = function(req, res){
     return res.redirect('/home');
 }

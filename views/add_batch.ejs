@@ -2,12 +2,9 @@
 <div id="bodyDiv">
     <%- include('_side_menu') %>
     <div id="contentDiv">
-        <div id="overlay" style="display: none">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-        </div>
+        <%- include('_spinner_overlay') %>
         <h3>Add batch</h3>
+        <!-- form to create a batch -->
         <form action="/create-batch" method="post" id="createBatch">
             <div class="mb-3">
                 <label class="form-label">Batch name</label>

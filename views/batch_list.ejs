@@ -2,12 +2,9 @@
 <div id="bodyDiv">
     <%- include('_side_menu') %>
     <div id="contentDiv">
-        <div id="overlay" style="display: none">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-        </div>
+        <%- include('_spinner_overlay') %>
         <h3>Batches data</h3>
+        <!-- Table showing batches data -->
         <table id="batchesTable" class="stripe">
             <thead>
                 <tr>

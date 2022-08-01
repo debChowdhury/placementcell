@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+//schema for assign interview status model
 const schema = new mongoose.Schema({
     student_id:{
         type: String,

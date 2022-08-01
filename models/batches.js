@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+//schema for batches model
 const batchesSchema = new mongoose.Schema({
     name:{
         type: String,

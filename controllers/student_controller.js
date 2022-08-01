@@ -6,6 +6,7 @@ const CoursesScore = require('../models/courses_score');
 const Interviews = require('../models/interviews');
 const AssignInterviewsStatus = require('../models/assign_interviews_status');
 
+//controller for showing the add student page
 module.exports.addStudent = function(req, res){
     Students.
         find({}).
@@ -40,6 +41,7 @@ module.exports.addStudent = function(req, res){
         });    
 }
 
+//controller for fetching student list
 module.exports.studentList = function(req, res){
     Students.
         find({}).
@@ -55,6 +57,7 @@ module.exports.studentList = function(req, res){
         });    
 }
 
+//controller for creating student
 module.exports.createStudent = function(req, res){
     Students.findOne({email:req.body.email}, function(err, student){
         if(err){
@@ -96,6 +99,7 @@ module.exports.createStudent = function(req, res){
     
 }
 
+//controller for fetching student scores in the courses
 module.exports.studentScores = function(req, res){
     let studentId = req.params.studentId;
     Students.findById(studentId, function (err, student) {
@@ -132,6 +136,7 @@ module.exports.studentScores = function(req, res){
     });
 }
 
+//controller for updating the student scores in the courses
 module.exports.updateScores = function(req, res){
     console.log(req.body);
     let course_score = req.body.course_score;
@@ -167,6 +172,7 @@ module.exports.updateScores = function(req, res){
     });
 }
 
+//controller for showing the assign student interview page
 module.exports.assignStudentInterviews = function(req, res){
     let interviewId = req.params.interviewId;
     Interviews.findById(interviewId, function (err, interview) {
@@ -197,6 +203,7 @@ module.exports.assignStudentInterviews = function(req, res){
     });
 }
 
+//controller for assigning student to interviews
 module.exports.assignStudentInterviewsPost = function(req, res){
     console.log(req.body);
     let interviewId = req.body.interviewId;
@@ -238,6 +245,7 @@ module.exports.assignStudentInterviewsPost = function(req, res){
     }
 }
 
+//controller for showing interview status of students page
 module.exports.studentInterviewStatus = function(req, res){
     console.log(req.params);
     let interviewId = req.params.interviewId;
@@ -257,6 +265,7 @@ module.exports.studentInterviewStatus = function(req, res){
     
 }
 
+//controller for updating interview status of students
 module.exports.studentInterviewStatusPost = function(req, res){
     console.log(req.body);
     let interviewId = req.body.interviewId;

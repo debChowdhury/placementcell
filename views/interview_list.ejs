@@ -3,16 +3,14 @@
     <%- include('_side_menu') %>
     
     <div id="contentDiv">
-        <div id="overlay" style="display: none">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-        </div>
+        <%- include('_spinner_overlay') %>
+        <!-- If there are no interviews listed then dont show the download interview data csv button -->
         <% if(interviews.length != 0){ %>
             <button id="downloadCSV" class="btn btn-info text-white">Download interview data csv</button>
         <% } %>
         <h3>All interviews</h3>
-        <table id="allInterviewsTable">
+        <!-- table showing all the interviews data and assigning students to them -->
+        <table id="allInterviewsTable"  class="stripe">
             <thead>
                 <tr>
                     <td>Company name</td>

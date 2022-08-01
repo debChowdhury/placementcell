@@ -1,4 +1,6 @@
 const Courses = require('../models/courses');
+
+//controller for showing the home page and creating the 3 default courses if they are not in the database
 module.exports.home = function(req, res){
     Courses.findOne({name:'DSA'},function(err, row){
         if(!row){

@@ -1,10 +1,7 @@
 <link rel="stylesheet" href="/css/home.css" >
 
-<div id="overlay" style="display: none">
-    <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-</div>
+<%- include('_spinner_overlay') %>
+<!-- table showing student data -->
 <h3>Student data</h3>
 <table id="studentT">
     <thead>
@@ -31,6 +28,7 @@
     
 </table>
 <p><h3>Courses data</h3></p>
+<!-- table showing courses data -->
 <table id="scoresTable" class="stripe">
     <thead>
         <tr>
@@ -45,7 +43,7 @@
                 <td>
                     <form action="/update-scores" method="post">
                         <% if (courses_scores.some(e => e.studentId === student.id && e.courseId === i.id)) { %>
-                            <input type="text" name="course_score" placeholder="Enter course score" 
+                            <input type="number" name="course_score" placeholder="Enter course score" 
                         value="<%= courses_scores.find(e => e.studentId === student.id && e.courseId === i.id).courseScore %>">
                         <% } else { %>
                         <input type="number" name="course_score" placeholder="Enter course final score" value="" required>

@@ -6,12 +6,14 @@ const CoursesScore = require('../models/courses_score');
 const Interviews = require('../models/interviews');
 const AssignInterviewsStatus = require('../models/assign_interviews_status');
 
+//controller for add course page
 module.exports.addCourse = function(req, res){
     res.render('add_course',{
         'title': 'Add course'
     })
 }
 
+//controller for creating course
 module.exports.createCourse = function(req, res){
     Courses.findOne({name:req.body.name}, function(err, course){
         if(err){
@@ -36,6 +38,7 @@ module.exports.createCourse = function(req, res){
     
 }
 
+//controller for fetching course list
 module.exports.courseList = function(req, res){
     Courses.find({}, function(err, courses){
         if(err){
