@@ -231,3 +231,4 @@
 [0mPOST /interview-status [32m200[0m 12.880 ms - 66[0m
 [0mPOST /logout [36m302[0m 11.653 ms - 46[0m
 [0mGET / [36m304[0m 8.269 ms - -[0m
+[0mGET / [32m200[0m 65.643 ms - 3579[0m
